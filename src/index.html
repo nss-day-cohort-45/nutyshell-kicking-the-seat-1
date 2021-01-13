@@ -9,17 +9,39 @@
     <title>Document</title>
 </head>
 
-<body>
-    <article class="container">
-        <article class="auth">
-            <section class="auth--login"></section>
-            <section class="auth--register"></section>
-        </article>
-        <article class="dashboard">
-            <!-- All your Nutshell are belong here -->
-        </article>
-    </article>
+<body class="body">
+    <header class="header">
+        <img class="header header__logo" src="./images.png" alt="logo">
+        <h1 class="header header__title"><em>Kicking The Nutshell</em></h1>
+    </header>
 
+    <main class="main">
+        <article class="container">
+            <article class="auth">
+                <section class="auth--login">Login Form</section>
+                <section class="auth--register">Registration Form</section>
+            </article>
+            <article class="dashboard">
+                <!-- All your Nutshell belong here -->
+                <article>
+                    <div class="dashboard tasks_events">
+                        <section class="tasks">Daily Tasks</section>
+                        <section class="events">Events</section>
+                    </div>
+                    <div class="dashboard articles_friends">
+                        <section class="articles">News Articles</section>
+                        <section class="friends">Friends List</section>
+                    </div>
+                </article>
+                <aside class="dashboard messages">Chat Messages</aside>
+            </article>
+        </article>
+    </main>
+
+    <footer class="footer"> 
+        <div><h5><em>2021 Kicking the Seat, Inc. All rights reserved &#169</em></h5></div>
+    </footer>
+    
     <script src="./scripts/main.js" type="module"></script>
 
 </body>
