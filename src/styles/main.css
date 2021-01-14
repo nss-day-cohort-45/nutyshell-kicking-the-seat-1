@@ -1,0 +1,62 @@
+
+
+body {
+    background-color: #57FF9A;
+}
+
+header {
+    display: flex;
+    border: solid gray 2px;
+    justify-content: center;
+    background-color: yellow;
+}
+
+.header__title {
+    padding: 15px;
+}
+
+.header__logo {
+    width: 100px;
+    margin: 5px
+}
+
+.auth {
+    display: flex;
+    justify-content: space-around;
+    margin: 25px;
+}
+
+.auth--login, .auth--register {
+    border: solid gray 2px;
+    background-color: yellow;
+    padding: 5px;
+    align-items: stretch;
+
+}
+
+.register {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+#login__username, #register--username, #register--email {
+    margin: 5px;
+    padding: 5px;
+}
+
+.tasks, .messages, .articles, .friends, .events {
+    border: gray 2px solid;
+    background-color: yellow;
+}
+
+.tasks_events, .articles_friends {
+    display: flex;
+    /* justify-content: space-around; */
+}
+
+.messages {
+    /* align-self: flex-end; */
+    align-content: right;
+
+}
