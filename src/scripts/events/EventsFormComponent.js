@@ -1,8 +1,11 @@
 
 const contentTarget = document.querySelector(".events")
+const eventHub = document.querySelector(".dashboard")
 
-const EventFormComponent = () => {
+// eventHub.addEventListener("", event => {})
 
+
+const render = () => {
     contentTarget.innerHTML = `<form action="" class="forms">
     <fieldset>
     <label for="eventName">Event Name</label>
@@ -34,6 +37,11 @@ const EventFormComponent = () => {
             </select>
         </fieldset>
     </form>
-    <input id="submit_button" type="submit" value="Submit Event"></input>`
+    <input id="submit_button" type="submit" value="Submit Event"></input>
 `
 }
+
+export const EventForm = () => {
+    render()
+}
+
