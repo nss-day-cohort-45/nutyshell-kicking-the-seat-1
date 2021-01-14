@@ -60,3 +60,23 @@ header {
     align-content: right;
 
 }
+
+/* Task */
+
+.taskList {
+    display: flex;
+}
+
+.tasksContainer {
+    margin-bottom: 20px;
+}
+
+.taskForm__form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.taskForm {
+    margin-bottom: 5px;
+}
