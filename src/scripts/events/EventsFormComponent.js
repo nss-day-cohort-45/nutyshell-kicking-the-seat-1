@@ -1,12 +1,21 @@
 
-const contentTarget = document.querySelector(".events")
+const contentTarget = document.querySelector(".addEventBtn")
 const eventHub = document.querySelector(".dashboard")
 
-// eventHub.addEventListener("", event => {})
+const EventPopup = (park) => {
+    return `
+        <section class="addEvent">
+          <div class="addEventBox">
+            <h1>Add Event</h1>
+              <button id="close-event-dialog">Close</button>
+          </div>
+        </section>
+      `
+}
 
-
-const render = () => {
-    contentTarget.innerHTML = `<form action="" class="forms">
+const AddEventDialog = (anEvent) => {
+    return `
+    <form action="" class="forms">
     <fieldset>
     <label for="eventName">Event Name</label>
     <input type="text" name="eventName" id="eventName">
@@ -41,7 +50,15 @@ const render = () => {
 `
 }
 
-export const EventForm = () => {
-    render()
-}
+window.addEventListener('keydown', evt => {
+    if (evt.key === 'Escape') {
+      closeDialogPark();
+    }
+  });
+  
+  const closeDialogPark = (taco) => {
+    parkPopUp.innerHTML = taco;
+    parkPopUp.close()
+  };
+
 

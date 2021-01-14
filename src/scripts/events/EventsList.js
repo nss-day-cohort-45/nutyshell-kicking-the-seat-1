@@ -1,18 +1,19 @@
 import { useEvents } from "./EventsDataProvider.js"
 import { EventsHTML } from "./EventsHTMLConverter.js"
 
-const eventHub = document.querySelector(".events")
+const eventHub = document.querySelector(".addEventBtn")
+const contentTarget = document.querySelector(".events")
 
-// eventHub.addEventListener("click", event => {
-//     if (event.target.id === "eventButton") {
-//         const customEvent = new CustomEvent("eventBtnClicked", {
-//             detail: {
-//                 clickedEventId: event.target.id
-//             }
-//         })
-//         eventHub.dispatchEvent(customEvent)
-//     }
-// })
+eventHub.addEventListener("click", event => {
+    if (event.target.id === "eventButton") {
+        const customEvent = new CustomEvent("close-event-dialog", {
+            detail: {
+                clickedEventId: event.target.id
+            }
+        })
+        eventHub.dispatchEvent(customEvent)
+    }
+})
 
 export const EventList = () => {
     let theEvents = useEvents()
@@ -30,3 +31,4 @@ export const render = () => {
          
     }
 }
+
