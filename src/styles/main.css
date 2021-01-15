@@ -26,12 +26,11 @@ header {
     margin: 25px;
 }
 
-.auth--login, .auth--register {
+.login, .register {
     border: solid gray 2px;
     background-color: yellow;
     padding: 5px;
     align-items: stretch;
-
 }
 
 .register {

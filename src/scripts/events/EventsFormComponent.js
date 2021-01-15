@@ -4,7 +4,7 @@ and save it into our database*/
 
 import { saveEvent } from "./EventsDataProvider.js"
 
-const eventDialog = document.querySelector(".eventDetailDialog")
+const eventDialog = document.querySelector(".detailDialog")
 const eventHub = document.querySelector(".container")
 
 // This function calls EventPopup
