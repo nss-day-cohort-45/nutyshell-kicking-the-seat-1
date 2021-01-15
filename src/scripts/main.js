@@ -14,8 +14,5 @@ import { Nutshell } from "./Nutshell.js"
 
 LoginForm()
 RegisterForm()
-<<<<<<< HEAD
 
-=======
 // Nutshell()
->>>>>>> master
