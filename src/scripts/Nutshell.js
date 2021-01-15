@@ -3,6 +3,8 @@
 
 import { EventList } from "./events/EventsList.js"
 import { EventsFormComponent } from "./events/EventsFormComponent.js"
+import { TaskList } from './tasks/TasksList.js'
+import { TasksFormComponent } from './tasks/TasksFormComponent.js'
 import { messageFormComponent } from "./messages/MessagesFormComponent.js"
 import { messageListComponent } from "./messages/MessagesList.js"
 
@@ -10,7 +12,8 @@ export const Nutshell = () => {
     // Render all your UI components here
     EventList()
     EventsFormComponent()
-
+    TaskList()
+    TasksFormComponent()
     messageFormComponent()
     messageListComponent()
 }
