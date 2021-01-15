@@ -1,12 +1,12 @@
 //Fetching messages from the database and exporting them for further use. Also saves notes and dispatches a change event
 //-Joshua
-import {messageListComponent} from "./MessagesList.js"
 
-const eventHub = document.querySelector(".main")
+
+const eventHub = document.querySelector(".container")
 
 let messages = []
 
-const dispatchStateChengeEvent = () => {
+const dispatchStateChangeEvent = () => {
     const messageStateChengedEvent = new CustomEvent("messageStateChanged")
 
     eventHub.dispatchEvent(messageStateChengedEvent)
@@ -23,7 +23,7 @@ export const getMessages = () => {
 }
 
 export const useMessages = () => {
-    const sortedByDate = journal.sort(
+    const sortedByDate = messages.sort(
         (currentMessage, nextMessage) =>
         Date.parse(currentMessage.date) - Date.parse(nextMessage.date)
     )
@@ -40,7 +40,6 @@ export const saveMessage = message => {
         body: messageString
     })
     .then(getMessages)
-    .then(dispatchStateChengeEvent)
-    .then(messageListComponent())
+    .then(dispatchStateChangeEvent)
 }
 
