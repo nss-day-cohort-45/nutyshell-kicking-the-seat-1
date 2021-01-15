@@ -1,3 +1,6 @@
+// Author: Chris Denmark
+// Purpose: Fetching the articles from the database and housing the save and delete functions for said articles.
+
 const eventHub = document.querySelector(".container")
 let articles = []
 
@@ -7,7 +10,9 @@ const dispatchStateChangeEvent = () => {
   eventHub.dispatchEvent(articleStateChangedEvent)
 }
 
-export const useArticles = articles.slice()
+export const useArticles = () => {
+  return articles.slice()
+} 
 
 export const getArticles = () => {
   return fetch('http://localhost:8088/articles')
