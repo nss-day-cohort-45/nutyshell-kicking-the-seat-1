@@ -1,34 +1,60 @@
-import { useEvents } from "./EventsDataProvider.js"
+// Author: Sosina Tolossa
+/* Purpose: To render our data into the DOM and also let the user 
+fill out event form and save that in our API*/
+
+import { useEvents, getEvents, deleteEvent } from "./EventsDataProvider.js"
 import { EventsHTML } from "./EventsHTMLConverter.js"
 
-const eventHub = document.querySelector(".addEventBtn")
+const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector(".events")
 
-eventHub.addEventListener("click", event => {
-    if (event.target.id === "eventButton") {
-        const customEvent = new CustomEvent("close-event-dialog", {
-            detail: {
-                clickedEventId: event.target.id
-            }
-        })
-        eventHub.dispatchEvent(customEvent)
-    }
-})
+let allEvents = []
 
+//
 export const EventList = () => {
-    let theEvents = useEvents()
-    render(theEvents)
+    getEvents()
+    .then( () => {
+        let theEvents = useEvents()
+        render(theEvents)
+    })
 }
 
+// This function renders a title and a button to click which then brings up a form to fill if the button is clicked
 export const render = () => {
-    let theEvents = useEvents()
-    for (const event of theEvents) {
-        /*
-            Invoking the component that returns an
-            HTML representation of a single event
-        */
-       eventHub.innerHTML += EventsHTML(event)
-         
-    }
+    contentTarget.innerHTML = `
+        <section class="eventsContainer">
+        <h2>Events To Go To</h2>
+        <div class="eventsToGoTo">
+        ${
+            allEvents.map(
+            (anEvent) => {
+                return EventsHTML(anEvent)
+            }).join("")
+        }
+        </div>
+    </section>
+    <button id="addEventBtn">Add Event</button>
+    `
 }
 
+
+// Add New Event Button Click - Dispatch
+eventHub.addEventListener('click', event => {
+    if (event.target.id.startsWith('addEventBtn')) {
+      const customEvent = new CustomEvent('addNewEventBtnClicked')
+      eventHub.dispatchEvent(customEvent)
+    }
+  })
+
+// Delete Task
+eventHub.addEventListener("click", clickEvent => {
+    if (clickEvent.target.id.startsWith("deleteEventBtn--")) {
+        const [prefix, taskId] = clickEvent.target.id.split("--")
+        /*
+            Invoke the function that performs the delete operation.
+            Once the operation is complete you should THEN invoke
+            useEvents() and render the event list again.
+        */
+       deleteEvent(taskId)
+    }
+  })

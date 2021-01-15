@@ -2,10 +2,12 @@
 // Purpose: Rendering all the UI components and the listen for an authenticated user sign in and make the login/register forms disappear to make way for the main page.
 
 import { EventList } from "./events/EventsList.js"
+import { EventsFormComponent } from "./events/EventsFormComponent.js"
 
 export const Nutshell = () => {
     // Render all your UI components here
     EventList()
+    EventsFormComponent()
 }
 
 const eventHub = document.querySelector(".container")

@@ -1,26 +1,45 @@
+// Author: Sosina Tolossa
+/* Purpose: To fetch an array of event objects from our API, and store
+ those data in a new array so we can use that elsewhere.*/
 
-const events = [
-    {
-      "id": 1,
-      "name": "Feel the New Sound of Nashville",
-      "date": "2021-08-06",
-      "location": "1 Titans Way, Nashville, TN 37213",
-      "weather": "Sunny",
-      "temperature": 84,
-      "description": "The Music City Grand Prix, in partnership with INDYCAR, is bringing a new sound to Nashville. The Music City Grand Prix announced that the newest NTT INDYCAR SERIES race will debut Aug. 6-8, 2021, in Nashville, Tennessee. The three-day international festival of speed and sound will be staged on a temporary grand prix circuit in downtown Nashville and around the Nissan Stadium campus.",
-      "userId": 1
-    }, 
-    {
-        "id": 2,
-        "name": "KENNY CHESNEY CHILLAXIFICATION TOUR",
-        "date": "2021-05-15",
-        "location": "1 Titans Way, Nashville, TN 37213",
-        "weather": "Cloudy",
-        "temperature": 65,
-        "description": "Kenny Chesney’s Chillaxification tour has been re-scheduled for Saturday, May 15, 2021 at Nissan Stadium. Original tickets are automatically valid for the rescheduled show date. Patrons unable to attend the rescheduled show have thirty (30) days from today’s date to request a refund at the point of purchase.",
-        "userId": 4
-      }
-]
+ const eventHub = document.querySelector(".container")
+
+let events = []
 
 //creating a function that returns a copy of events array and exporting it
 export const useEvents = () => events.slice()
+
+export const getEvents = () => {
+  return fetch("http://localhost:8088/events")
+  .then(response => response.json())
+  .then(
+    parsedEvents => {
+    events = parsedEvents
+  })
+}
+
+export const saveEvent = anEvent => {
+  let stringifiedObj = JSON.stringify(anEvent)
+  return fetch('http://localhost:8088/events', {
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json"
+      },
+      body: stringifiedObj
+  })
+  .then(getEvents)
+  .then(dispatchStateChangeEvent)
+}
+
+export const deleteEvent = eventId => {
+  return fetch(`http://localhost:8088/tasks/${eventId}`, {
+    method: "DELETE"
+  })
+  .then(getEvents)
+  .then(dispatchChangedEvent)
+}
+
+const dispatchChangedEvent = () => {
+  const changedEvent = new CustomEvent("eventChanged")
+  eventHub.dispatchEvent(changedEvent)
+}

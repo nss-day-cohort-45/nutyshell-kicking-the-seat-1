@@ -1,4 +1,5 @@
-import { useEvents } from "./EventsDataProvider.js"
+// Author: Sosina Tolossa
+/* Purpose: To change our saved data into HTML representation*/
 
 //this function returns html representation of each event object of our 'events' array
 export const EventsHTML = (eventObj) => {
@@ -12,7 +13,7 @@ export const EventsHTML = (eventObj) => {
             <p>Temperature: ${eventObj.temperature}&#8457;</p>
             <p>Description: ${eventObj.description}</p>      
     </div>
-    <div><button id="deleteEventButton">Delete Event</button></div>
+    <div><button id="deleteEventBtn--${eventObj.id}" class="deleteEventButton">Delete Event</button></div>
     `
 }
 
