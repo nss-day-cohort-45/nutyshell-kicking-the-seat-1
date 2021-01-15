@@ -3,9 +3,10 @@
 
 export const TasksHTMLConverter = (task) => {
   return `
-  <section class="taskList"> 
+  <div class="taskList"> 
     <input type="checkbox" class="tasks__checkbox"></input>
     <div class="tasks__task">${task.name}</div>
-  </section>
+    <button id="deleteTaskBtn--${task.id}" class="deleteTaskBtn">Delete Task</button>
+  </div>
   `
 }

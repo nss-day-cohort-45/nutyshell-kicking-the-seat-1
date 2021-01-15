@@ -80,3 +80,11 @@ header {
 .taskForm {
     margin-bottom: 5px;
 }
+
+.deleteTaskBtn {
+    margin-left: 10px;
+}
+
+.saveTaskBtn {
+    float: right;
+}

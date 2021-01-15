@@ -3,10 +3,26 @@
   and stores it into an empty array we can use elsewhere.
 */ 
 
-let tasks = [];
+// ------------------------------------------------------------------------------------------------------------------------------------//
+//                                                            - DOM NODE REFERENCES                                                    //
+// ------------------------------------------------------------------------------------------------------------------------------------//
+
+const eventHub = document.querySelector(".container")
+
+
+// ------------------------------------------------------------------------------------------------------------------------------------//
+//                                                            - GLOBAL VARIABLES                                                       //
+// ------------------------------------------------------------------------------------------------------------------------------------//
+
+let tasks = []
+
+
+// ------------------------------------------------------------------------------------------------------------------------------------//
+//                                                            - FUNCTIONS                                                              //
+// ------------------------------------------------------------------------------------------------------------------------------------//
 
 export const useTasks = () => {
-  return tasks.slice();
+  return tasks.slice()
 }
 
 export const getTasks = () => {
@@ -16,5 +32,35 @@ export const getTasks = () => {
     parsedTasks => {
       tasks = parsedTasks
     }
-  );
+  )
+}
+
+export const saveTask = task => {
+  let stringifiedObj = JSON.stringify(task)
+  return fetch('http://localhost:8088/tasks', {
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json"
+      },
+      body: stringifiedObj
+  })
+  .then(getTasks)
+  .then(dispatchStateChangeEvent)
+}
+
+export const deleteTask = taskId => {
+  return fetch(`http://localhost:8088/tasks/${taskId}`, {
+      method: "DELETE"
+  })
+  .then(getTasks)
+  .then(dispatchStateChangeEvent)
+}
+
+// ------------------------------------------------------------------------------------------------------------------------------------//
+//                                                            - EVENTS                                                                 //
+// ------------------------------------------------------------------------------------------------------------------------------------//
+
+const dispatchStateChangeEvent = () => {
+  const taskStateChangedEvent = new CustomEvent("taskStateChanged")
+  eventHub.dispatchEvent(taskStateChangedEvent)
 }
