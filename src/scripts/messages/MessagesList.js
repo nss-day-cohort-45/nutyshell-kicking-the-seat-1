@@ -1,7 +1,7 @@
 //Renders the list of already sent messages
 //-Joshua
 
-import {getMessages, useMessages} from "./MessagesDataProvider.js"
+import {deleteMessage, getMessages, useMessages} from "./MessagesDataProvider.js"
 import {messageHTML} from "./MessagesHTMLConverter.js"
 
 const contentTarget = document.querySelector(".messageList")
@@ -18,6 +18,14 @@ export const messageListComponent = () => {
             }
         })
 }
+
+eventHub.addEventListener("click", clickEvent => {
+    if (clickEvent.target.id.startsWith("deleteMessage--")) {
+        const [prefix, messageId] = clickEvent.target.id.split("--")
+
+        deleteMessage(messageId)
+    }
+})
 
 eventHub.addEventListener("messageStateChanged", () => {
     messageListComponent()
