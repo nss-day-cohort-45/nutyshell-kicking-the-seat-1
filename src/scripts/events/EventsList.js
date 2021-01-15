@@ -24,7 +24,7 @@ export const EventList = () => {
 export const render = () => {
     contentTarget.innerHTML = `
         <section class="eventsContainer">
-        <h2>Events To Go To</h2>
+        <h2><em>Events To Go To</em></h2>
         <div class="eventsToGoTo">
         ${
             allEvents.map(
