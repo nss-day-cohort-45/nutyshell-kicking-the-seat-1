@@ -3,6 +3,8 @@
 
 import { articleList } from "./articles/ArticlesList.js"
 import { ArticleForm } from "./articles/ArticlesFormComponent.js"
+import { TaskList } from './tasks/TasksList.js'
+import { TasksFormComponent } from './tasks/TasksFormComponent.js'
 import { messageFormComponent } from "./messages/MessagesFormComponent.js"
 import { messageListComponent } from "./messages/MessagesList.js"
 
@@ -10,6 +12,8 @@ export const Nutshell = () => {
     // Render all your UI components here
     articleList()
     ArticleForm()
+    TaskList()
+    TasksFormComponent()
     messageFormComponent()
     messageListComponent()
 }
