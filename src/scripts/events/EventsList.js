@@ -8,9 +8,9 @@ import { EventsHTML } from "./EventsHTMLConverter.js"
 const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector(".events")
 
-let allEvents = []
+let allEvents = [] //empty array for now
 
-//
+// This function gets event, then put those events in allEvents array and renders those events
 export const EventList = () => {
     getEvents()
     .then( () => {
@@ -39,7 +39,7 @@ export const render = () => {
 }
 
 
-// Add New Event Button Click - Dispatch
+// This function creates event listener for 'Add New Event' button clicked and dispatch that event
 eventHub.addEventListener('click', event => {
     if (event.target.id.startsWith('addEventBtn')) {
       const customEvent = new CustomEvent('addNewEventBtnClicked')
@@ -47,7 +47,7 @@ eventHub.addEventListener('click', event => {
     }
   })
 
-// Delete Task
+// This function listens for the delete button to be clicked and deletes the specific event
 eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id.startsWith("deleteEventBtn--")) {
         const [prefix, taskId] = clickEvent.target.id.split("--")
@@ -60,6 +60,7 @@ eventHub.addEventListener("click", clickEvent => {
     }
   })
 
+// This function listens for the change event of that the user saved an event 
 eventHub.addEventListener("eventChanged", () => {
-    EventList()
+    EventList() //then we call EventList to render the new list of event (with the new event added)
 })
