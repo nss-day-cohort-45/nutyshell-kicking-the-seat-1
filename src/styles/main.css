@@ -52,5 +52,7 @@ header {
 
 .tasks_events, .articles_friends {
     display: flex;
-    /* justify-content: space-around; */
+    justify-content: space-between;
+    padding: 2px;
+
 }
