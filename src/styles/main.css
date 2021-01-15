@@ -1,4 +1,5 @@
 @import "tasks.css";
+@import "messages.css";
 
 body {
     background-color: #57FF9A;
@@ -52,10 +53,4 @@ header {
 .tasks_events, .articles_friends {
     display: flex;
     /* justify-content: space-around; */
-}
-
-.messages {
-    /* align-self: flex-end; */
-    align-content: right;
-
 }
