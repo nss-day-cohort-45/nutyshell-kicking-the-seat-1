@@ -1,4 +1,4 @@
-
+@import "tasks.css";
 
 body {
     background-color: #57FF9A;
@@ -59,32 +59,4 @@ header {
     /* align-self: flex-end; */
     align-content: right;
 
-}
-
-/* Task */
-
-.taskList {
-    display: flex;
-}
-
-.tasksContainer {
-    margin-bottom: 20px;
-}
-
-.taskForm__form {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
-}
-
-.taskForm {
-    margin-bottom: 5px;
-}
-
-.deleteTaskBtn {
-    margin-left: 10px;
-}
-
-.saveTaskBtn {
-    float: right;
 }

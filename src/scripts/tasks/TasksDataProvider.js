@@ -35,6 +35,7 @@ export const getTasks = () => {
   )
 }
 
+// SAVE
 export const saveTask = task => {
   let stringifiedObj = JSON.stringify(task)
   return fetch('http://localhost:8088/tasks', {
@@ -48,6 +49,7 @@ export const saveTask = task => {
   .then(dispatchStateChangeEvent)
 }
 
+// DELETE
 export const deleteTask = taskId => {
   return fetch(`http://localhost:8088/tasks/${taskId}`, {
       method: "DELETE"
@@ -55,6 +57,9 @@ export const deleteTask = taskId => {
   .then(getTasks)
   .then(dispatchStateChangeEvent)
 }
+
+// CHECKBOX
+
 
 // ------------------------------------------------------------------------------------------------------------------------------------//
 //                                                            - EVENTS                                                                 //
