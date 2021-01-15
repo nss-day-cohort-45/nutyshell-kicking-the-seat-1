@@ -36,7 +36,7 @@ eventHub.addEventListener("click", e => {
 
                 }
                 else {
-                    window.alert("Username already exists!  😭")
+                    window.alert("Username already exists! 😭")
                 }
             })
         }
@@ -47,6 +47,7 @@ eventHub.addEventListener("click", e => {
 const render = () => {
     contentTarget.innerHTML += `
         <section class="register">
+            <h1>Register Form</h1>
             <input id="register--username" type="text" placeholder="Enter your username">
             <input id="register--email" type="text" placeholder="Enter your email address">
 
