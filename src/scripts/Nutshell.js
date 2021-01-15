@@ -3,11 +3,16 @@
 
 import { EventList } from "./events/EventsList.js"
 import { EventsFormComponent } from "./events/EventsFormComponent.js"
+import { messageFormComponent } from "./messages/MessagesFormComponent.js"
+import { messageListComponent } from "./messages/MessagesList.js"
 
 export const Nutshell = () => {
     // Render all your UI components here
     EventList()
     EventsFormComponent()
+
+    messageFormComponent()
+    messageListComponent()
 }
 
 const eventHub = document.querySelector(".container")
