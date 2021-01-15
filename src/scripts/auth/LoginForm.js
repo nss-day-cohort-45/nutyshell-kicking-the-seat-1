@@ -25,6 +25,7 @@ eventHub.addEventListener("click", e => {
 const render = () => {
     contentTarget.innerHTML += `
         <section class="login">
+            <h1>Login Form</h1>
             <input id="login__username" type="text" placeholder="Enter your username">
             <button id="login__button">Log In</button>
         </section>
@@ -34,3 +35,4 @@ const render = () => {
 export const LoginForm = () => {
     render()
 }
+

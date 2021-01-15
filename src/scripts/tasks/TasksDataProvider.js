@@ -59,6 +59,18 @@ export const deleteTask = taskId => {
 }
 
 // CHECKBOX
+export const updateTasks = (task) => {
+  return fetch(`http://localhost:8088/tasks/${task.id}`, {
+      method: "PUT",
+      headers: {
+          "Content-Type": "application/json",
+          "cache-control":"no-cache"
+      },
+      body: JSON.stringify(task)
+  })
+      .then(getTasks)
+      .then(dispatchStateChangeEvent)
+}
 
 
 // ------------------------------------------------------------------------------------------------------------------------------------//
