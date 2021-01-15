@@ -1,6 +1,7 @@
-.messages {
-    display: flex;
-    align-self: flex-end;
-    align-content: right;
+.messageList {
+    height:400px;
+    width:200px;
+    font:16px/26px Georgia, Garamond, Serif;
+    overflow:auto;
 
 }
