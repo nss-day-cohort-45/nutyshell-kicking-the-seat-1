@@ -14,10 +14,11 @@ let allEvents = []
 export const EventList = () => {
     getEvents()
     .then( () => {
-        let theEvents = useEvents()
-        render(theEvents)
+        allEvents = useEvents()
+        render()
     })
 }
+
 
 // This function renders a title and a button to click which then brings up a form to fill if the button is clicked
 export const render = () => {
@@ -58,3 +59,7 @@ eventHub.addEventListener("click", clickEvent => {
        deleteEvent(taskId)
     }
   })
+
+eventHub.addEventListener("eventChanged", () => {
+    EventList()
+})

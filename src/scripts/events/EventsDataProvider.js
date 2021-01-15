@@ -25,14 +25,14 @@ export const saveEvent = anEvent => {
       headers: {
           "Content-Type": "application/json"
       },
-      body: stringifiedObj
+      body: stringifiedObj //to grab the object stored as strings
   })
   .then(getEvents)
-  .then(dispatchStateChangeEvent)
+  .then(dispatchChangedEvent)
 }
 
 export const deleteEvent = eventId => {
-  return fetch(`http://localhost:8088/tasks/${eventId}`, {
+  return fetch(`http://localhost:8088/events/${eventId}`, {
     method: "DELETE"
   })
   .then(getEvents)
@@ -43,3 +43,4 @@ const dispatchChangedEvent = () => {
   const changedEvent = new CustomEvent("eventChanged")
   eventHub.dispatchEvent(changedEvent)
 }
+

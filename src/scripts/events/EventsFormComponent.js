@@ -4,8 +4,8 @@ and save it into our database*/
 
 import { saveEvent } from "./EventsDataProvider.js"
 
-const eventDialog = document.querySelector(".addEventBtn")
-const eventHub = document.querySelector(".eventDetailDialog")
+const eventDialog = document.querySelector(".eventDetailDialog")
+const eventHub = document.querySelector(".container")
 
 // This function calls EventPopup
 export const EventsFormComponent = () => {
@@ -21,9 +21,6 @@ const EventPopup = () => {
             <h1>Add Event</h1>
             <div class="eventForm__list">
                 ${eventDialogForm()}
-            </div>
-              <button id="close-event-dialog">Close</button>
-          </div>
         </section>
       `
 }
@@ -41,7 +38,7 @@ const eventDialogForm = () => {
     <form action="" class="forms">
         <fieldset>
             <label for="eventDate">Date of Event</label>
-            <input type="text" name="eventDate" id="eventDate">
+            <input type="date" name="eventDate" id="eventDate">
         </fieldset>
     </form>
 
@@ -62,7 +59,7 @@ const eventDialogForm = () => {
     <form action="" class="forms">
         <fieldset>
             <label for="weatherDuringEvent">Weather during Event</label>
-            <select name="mood" id="mood" id="weatherMood">
+            <select name="mood" id="weatherMood">
                 <option value="sunny">Sunny</option>
                 <option value="cloudy">Cloudy</option>
                 <option value="in-between">In-between</option>
@@ -115,14 +112,14 @@ eventDialog.addEventListener('click', event => {
   eventDialog.addEventListener("click", event => {
       if (event.target.id === "submit_button") {
           const customEvent = new CustomEvent("saveEventBtnRecorded")
-          console.log("event is saved")
+        //   console.log("event is saved")
           eventDialog.dispatchEvent(customEvent) //this is shouting a new event has been created which is 'submit' button is clicked
       }
   })
 
   // This is taking information that the user submitted for the event
   eventDialog.addEventListener("saveEventBtnRecorded", event => {
-      const eventName = document.querySelector("#eventName").Value
+      const eventName = document.querySelector("#eventName").value
       const eventDate = document.querySelector("#eventDate").value
       const eventLocation = document.querySelector("#EventLocation").value
       const weatherMood = document.querySelector("#weatherMood").value
