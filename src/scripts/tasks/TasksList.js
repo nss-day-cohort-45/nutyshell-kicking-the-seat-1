@@ -10,6 +10,10 @@ const contentTarget = document.querySelector(".tasks")
 
 let allTasks = []
 
+eventHub.addEventListener("taskStateChanged", () => {
+  TaskList()
+})
+
 export const TaskList = () => {
   getTasks()
     .then(() => {
