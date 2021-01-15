@@ -1,0 +1,6 @@
+.messages {
+    display: flex;
+    align-self: flex-end;
+    align-content: right;
+
+}

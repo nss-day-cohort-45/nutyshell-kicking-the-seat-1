@@ -54,9 +54,3 @@ header {
     display: flex;
     /* justify-content: space-around; */
 }
-
-.messages {
-    /* align-self: flex-end; */
-    align-content: right;
-
-}
