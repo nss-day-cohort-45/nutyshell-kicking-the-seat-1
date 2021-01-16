@@ -36,7 +36,7 @@ const render = () => {
         </div>
       </section>
 
-   <button id="addNewTaskBtn">Add New Task</button>
+   <button id="addNewTaskBtn" class="addNewTaskBtn">Add New Task</button>
     `
 }
 

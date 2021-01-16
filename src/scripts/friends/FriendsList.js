@@ -36,7 +36,7 @@ const render = () => {
         </div>
       </section>
 
-   <button id="addNewFriendBtn">Add New Friend</button>
+   <button id="addNewFriendBtn" class="addNewFriendBtn">Add New Friend</button>
     `
 }
 

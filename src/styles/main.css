@@ -50,7 +50,8 @@ header {
 .tasks, .messages, .articles, .friends, .events {
     border: gray 2px solid;
     background-color: yellow;
-    width: 500px;
+    width: 600px;
+    padding: 25px;
 }
 
 .tasks_events, .articles_friends {

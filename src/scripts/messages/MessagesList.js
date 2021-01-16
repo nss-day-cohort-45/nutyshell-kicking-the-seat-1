@@ -10,7 +10,7 @@ const eventHub = document.querySelector(".container")
 export const messageListComponent = () => {
     getMessages()
         .then(() => {
-            contentTarget.innerHTML = ""
+            contentTarget.innerHTML = "<h2>Chat Messages</h2>"
             let usingMessages = useMessages()
             for (const text of usingMessages) {
                 const messageList = messageHTML(text)
