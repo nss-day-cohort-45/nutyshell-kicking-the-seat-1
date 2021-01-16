@@ -1,5 +1,5 @@
 // Author: Rickie
-/* Purpose: To render a list of Daily Task HTML elements
+/* Purpose: To render a list of Friends HTML elements
 */
 
 import { getTasks, useTasks, deleteTask } from './TasksDataProvider.js'

@@ -1,0 +1,25 @@
+.friendList {
+  display: flex;
+}
+
+.friendsContainer {
+  margin-bottom: 20px;
+}
+
+.friendForm__form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.friendForm {
+  margin-bottom: 5px;
+}
+
+.saveFriendBtn {
+  float: right;
+}
+
+.deleteFriendBtn {
+  margin-left: 10px;
+}

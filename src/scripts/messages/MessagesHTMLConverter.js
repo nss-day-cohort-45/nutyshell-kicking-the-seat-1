@@ -16,9 +16,10 @@ export const messageHTML = (messageObject) => {
     else {
         return `
         <section class="messages">
-            <div class="messageAuthor">${messageObject.user.username}</div>
-            <div class="messageDate"> Sent ${ new Date(messageObject.date).toLocaleDateString('en-US') }</div>
-            <div class="messageText">${messageObject.text}</div>
+        <div class="messageUsername" id="messageUsername">${messageObject.user.username}</div>
+        <div class="messageDate"> Sent ${ new Date(messageObject.date).toLocaleDateString('en-US') }</div>
+        <div class="messageText">${messageObject.text}</div>
         </section>`
     }
 }
+

@@ -5,6 +5,7 @@ import { getArticles, useArticles, deleteArticle } from "./ArticlesDataProvider.
 import { ArticleHTMLConverter } from "./ArticlesHTMLConverter.js"
 
 const contentTarget = document.querySelector(".articleList")
+const articleTarget = document.querySelector(".articles")
 const eventHub = document.querySelector(".container")
 
 eventHub.addEventListener("articleStateChanged", () => {

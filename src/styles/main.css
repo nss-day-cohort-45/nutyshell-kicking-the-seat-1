@@ -1,5 +1,6 @@
 @import "tasks.css";
 @import "messages.css";
+@import "friends.css";
 
 body {
     background-color: #57FF9A;
@@ -53,4 +54,18 @@ header {
 .tasks_events, .articles_friends {
     display: flex;
     /* justify-content: space-around; */
+}
+
+
+.messageUsername {
+    color: rgb(0, 72, 255);
+}
+
+.messageUsername:hover {
+    color: #00b4dc;
+    text-decoration: underline;
+}
+
+.dashboard {
+    display: flex;
 }
