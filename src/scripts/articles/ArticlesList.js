@@ -33,9 +33,12 @@ const render = (articlesArray) => {
   }).join("")
 
   articleTarget.innerHTML = `
-    <h2>News Articles</h2>
-     ${allArticlesConvertedToStrings}
-    <button id="addNewArticle">Add New Article</button>
+      <h2>News Articles</h2>
+      ${allArticlesConvertedToStrings}
+      <div>
+      <button id="addNewArticle">Add New Article</button>
+      </div>
+    </div>
   `
 }
 
