@@ -1,6 +1,7 @@
 @import "tasks.css";
 @import "messages.css";
 @import "friends.css";
+@import "articles.css";
 
 body {
     background-color: #57FF9A;
@@ -49,11 +50,10 @@ header {
 .tasks, .messages, .articles, .friends, .events {
     border: gray 2px solid;
     background-color: yellow;
+    width: 500px;
 }
 
 .tasks_events, .articles_friends {
-    display: flex;
-    /* justify-content: space-around; */
 }
 
 
