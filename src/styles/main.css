@@ -2,6 +2,7 @@
 @import "messages.css";
 @import "friends.css";
 @import "articles.css";
+@import "events.css";
 
 body {
     background-color: #57FF9A;
@@ -50,23 +51,16 @@ header {
 .tasks, .messages, .articles, .friends, .events {
     border: gray 2px solid;
     background-color: yellow;
-    width: 600px;
-    padding: 25px;
 }
 
 .tasks_events, .articles_friends {
 }
 
-
-.messageUsername {
-    color: rgb(0, 72, 255);
-}
-
-.messageUsername:hover {
-    color: #00b4dc;
-    text-decoration: underline;
-}
-
 .dashboard {
     display: flex;
+}
+
+.nutshellComponent{
+    width: 500px;
+    padding: 20px;
 }

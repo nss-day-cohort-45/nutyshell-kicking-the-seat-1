@@ -1,6 +1,5 @@
 // Author: Rickie
-// Purpose: To display the task form popup when the user clicks the add new task button.
-
+// Purpose: To display the friend form popup
 
 // ------------------------------------------------------------------------------------------------------------------------------------//
 //                                                            - IMPORT STATEMENTS                                                      //

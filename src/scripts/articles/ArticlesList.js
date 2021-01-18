@@ -33,12 +33,13 @@ const render = (articlesArray) => {
   }).join("")
 
   articleTarget.innerHTML = `
-      <h2>News Articles</h2>
-      ${allArticlesConvertedToStrings}
-      <div>
-      <button id="addNewArticle">Add New Article</button>
-      </div>
-    </div>
+      <section class= "nutshellComponent">
+        <h2>News Articles</h2>
+        ${allArticlesConvertedToStrings}
+          <div>
+          <button id="addNewArticle" class="addNewArticle">Add New Article</button>
+          </div>
+      </section> 
   `
 }
 

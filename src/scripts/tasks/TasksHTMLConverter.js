@@ -4,7 +4,7 @@
 export const TasksHTMLConverter = (task) => {
   return `
   <div class="taskList"> 
-    <input type="checkbox" class="tasks__checkbox"></input>
+    <input type="checkbox" class="tasks__checkbox" id="checkbox--${task.id}"></input>
     <div class="tasks__task">${task.name}</div>
     <button id="deleteTaskBtn--${task.id}" class="deleteTaskBtn">Delete Task</button>
   </div>

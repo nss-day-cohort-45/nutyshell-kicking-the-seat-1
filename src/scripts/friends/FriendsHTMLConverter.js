@@ -1,5 +1,5 @@
 // Author: Rickie and Chris
-// Purpose: Creates an HTML representation of all the tasks and checkboxes
+// Purpose: Creates an HTML representation of all the friends
 
 export const FriendsHTMLConverter = (friend) => {
   return `

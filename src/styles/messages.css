@@ -5,3 +5,21 @@
     overflow:auto;
 }
 
+.messagesContainer {
+    border: gray 2px solid;
+    background-color: yellow;
+}
+
+.messageUsername {
+    color: rgb(0, 72, 255);
+    font-size: 20px;
+}
+
+.messageAuthor {
+    font-size: 20px;
+}
+
+.messageUsername:hover {
+    color: #1ddc00;
+    text-decoration: underline;
+}

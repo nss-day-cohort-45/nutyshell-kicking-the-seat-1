@@ -1,5 +1,5 @@
 // Author: Rickie
-/* Purpose: To render a list of Daily Task HTML elements
+/* Purpose: To render a list of Friend HTML elements
 */
 
 import { getFriends, useFriends, deleteFriend } from './FriendsDataProvider.js'
@@ -24,7 +24,7 @@ export const FriendList = () => {
 
 const render = () => {
   contentTarget.innerHTML = `
-      <section class="friendsContainer">
+      <section class="friendsContainer nutshellComponent">
         <h2>Friends</h2>
         <div class="friendList">
           ${
@@ -34,9 +34,9 @@ const render = () => {
               }).join("")
           }
         </div>
+        <button id="addNewFriendBtn" class="addNewFriendBtn">Add New Friend</button>
       </section>
 
-   <button id="addNewFriendBtn" class="addNewFriendBtn">Add New Friend</button>
     `
 }
 

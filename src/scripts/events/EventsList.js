@@ -23,7 +23,7 @@ export const EventList = () => {
 // This function renders a title and a button to click which then brings up a form to fill if the button is clicked
 export const render = () => {
     contentTarget.innerHTML = `
-        <section class="eventsContainer">
+        <section class="eventsContainer nutshellComponent">
         <h2><em>Events To Go To</em></h2>
         <div class="eventsToGoTo">
         ${
@@ -33,8 +33,8 @@ export const render = () => {
             }).join("")
         }
         </div>
+        <button id="addEventBtn" class="addEventBtn">Add Event</button>
     </section>
-    <button id="addEventBtn">Add Event</button>
     `
 }
 

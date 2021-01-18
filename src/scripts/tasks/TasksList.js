@@ -24,7 +24,7 @@ export const TaskList = () => {
 
 const render = () => {
   contentTarget.innerHTML = `
-      <section class="tasksContainer">
+      <section class="tasksContainer nutshellComponent">
         <h2>Daily Tasks</h2>
         <div class="dailyTasks">
           ${
@@ -33,10 +33,9 @@ const render = () => {
                 return TasksHTMLConverter(task)
               }).join("")
           }
-        </div>
+        </div> 
+        <button id="addNewTaskBtn" class="addNewTaskBtn">Add New Task</button>
       </section>
-
-   <button id="addNewTaskBtn" class="addNewTaskBtn">Add New Task</button>
     `
 }
 
@@ -53,15 +52,21 @@ eventHub.addEventListener('click', event => {
   }
 })
 
+
 // Delete Task
 eventHub.addEventListener("click", clickEvent => {
   if (clickEvent.target.id.startsWith("deleteTaskBtn--")) {
       const [prefix, taskId] = clickEvent.target.id.split("--")
-      /*
-          Invoke the function that performs the delete operation.
-          Once the operation is complete you should THEN invoke
-          useNotes() and render the note list again.
-      */
+     
+     deleteTask(taskId)
+  }
+})
+
+// Delete Task - Checkbox
+eventHub.addEventListener("click", clickEvent => {
+  if (clickEvent.target.id.startsWith("checkbox--")) {
+      const [prefix, taskId] = clickEvent.target.id.split("--")
+     
      deleteTask(taskId)
   }
 })
