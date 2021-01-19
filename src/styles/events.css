@@ -1,0 +1,13 @@
+
+.closeDialog {
+    color: red;
+}
+
+.detailDialog {
+    border: gray solid 2px;
+    background-color: yellow;
+}
+
+.anEvent {
+    padding: 2px;
+}

@@ -16,11 +16,12 @@ export const EventsFormComponent = () => {
 const EventPopup = () => {
     return `
         <section id="eventForm__details">
-        <button id="closeDialog" class="closeDialog">close</button
+        <button id="closeDialog" class="closeDialog">X</button
           <div class="addEventBox">
-            <h1>Add Event</h1>
             <div class="eventForm__list">
                 ${eventDialogForm()}
+            </div>
+          </div>
         </section>
       `
 }
@@ -28,6 +29,7 @@ const EventPopup = () => {
 //this is a form the user can fill out to add an event
 const eventDialogForm = () => {
     return `
+    <br>
     <form action="" class="forms">
     <fieldset>
     <label for="eventName">Event Name</label>
@@ -72,6 +74,7 @@ const eventDialogForm = () => {
             <input type="text" name="eventTemperature" id="eventTemperature">
         </fieldset>
     </form>
+    <br>
     <input id="submit_button" type="submit" value="Submit Event"></input>
 `
 }
