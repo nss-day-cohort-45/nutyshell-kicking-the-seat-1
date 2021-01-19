@@ -1,4 +1,4 @@
-// Author: Rickie
+// Author: Rickie Le 
 /* Purpose: To render a list of Friend HTML elements
 */
 
@@ -10,10 +10,7 @@ const contentTarget = document.querySelector(".friends")
 
 let allFriends = []
 
-eventHub.addEventListener("friendStateChanged", () => {
-  FriendList()
-})
-
+// Grabs the friends, and the render function is invoked to display the Friends container
 export const FriendList = () => {
   getFriends()
     .then(() => {
@@ -22,6 +19,7 @@ export const FriendList = () => {
     })
 }
 
+// To render the Friends List container, and a list of the user's friends with FriendsHTMLConverter
 const render = () => {
   contentTarget.innerHTML = `
       <section class="friendsContainer nutshellComponent">
@@ -40,8 +38,12 @@ const render = () => {
     `
 }
 
+// Changes the current state of friends to the most updated version - Invokes FriendList
+eventHub.addEventListener("friendStateChanged", () => {
+  FriendList()
+})
 
-// Add New Friend
+// Add New Friend - Dispatch
 eventHub.addEventListener('click', event => {
   if (event.target.id.startsWith('addNewFriendBtn')) {
     const customEvent = new CustomEvent('addNewFriendBtnClicked')
@@ -49,15 +51,11 @@ eventHub.addEventListener('click', event => {
   }
 })
 
-// Delete Friend
+// Delete Friend when clicking the Delete Friend button
 eventHub.addEventListener("click", clickEvent => {
   if (clickEvent.target.id.startsWith("deleteFriendBtn--")) {
       const [prefix, friendId] = clickEvent.target.id.split("--")
-      /*
-          Invoke the function that performs the delete operation.
-          Once the operation is complete you should THEN invoke
-          useNotes() and render the note list again.
-      */
+   
      deleteFriend(friendId)
   }
 })

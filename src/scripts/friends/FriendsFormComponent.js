@@ -1,29 +1,17 @@
-// Author: Rickie
-// Purpose: To display the friend form popup
-
-// ------------------------------------------------------------------------------------------------------------------------------------//
-//                                                            - IMPORT STATEMENTS                                                      //
-// ------------------------------------------------------------------------------------------------------------------------------------//
+// Author: Rickie Le
+// Purpose: To display the Add a Friend popup when the user clicks the Add New Friend button.
 
 import { saveFriend } from './FriendsDataProvider.js'
-
-
-// ------------------------------------------------------------------------------------------------------------------------------------//
-//                                                            - DOM NODE REFERENCES                                                    //
-// ------------------------------------------------------------------------------------------------------------------------------------//
 
 const eventHub = document.querySelector('.container')
 const friendsPopup = document.querySelector('.detailDialog')
 
-// ------------------------------------------------------------------------------------------------------------------------------------//
-//                                                            - FUNCTIONS                                                              //
-// ------------------------------------------------------------------------------------------------------------------------------------//
-
+// Function which is called in Nutshell.js. This invokes FriendPop, which is responsible for the Add New Friend popup
 export const FriendsFormComponent = () => {
   FriendPop()
 }
 
-//  Add New Task Pop Up Container
+//  Add New Friend popup container
 const FriendPop = () => {
   return `
       <section id="friendForm__details">
@@ -39,7 +27,7 @@ const FriendPop = () => {
     `
   }
 
-// Add New Task Pop Up Details
+// Add New Friend popup form
   const FriendCard = () => {
     return `
     <fieldset id="friendForm__form">
@@ -49,13 +37,13 @@ const FriendPop = () => {
     `  
   }
 
-// Close Dialog
+// Close popup
   const closeDialog = (popup) => {
     friendsPopup.innerHTML = popup;
     friendsPopup.close()
   }
   
-// Open Dialog
+// Open popup
   const openDialog = (popup) => { 
     friendsPopup.innerHTML = popup;
     friendsPopup.show()
@@ -65,34 +53,36 @@ const FriendPop = () => {
 //                                                            - EVENTS                                                                 //
 // ------------------------------------------------------------------------------------------------------------------------------------//
 
-// Close Popup
+// Close popup with close/x button
 friendsPopup.addEventListener('click', event => {
   if (event.target.id === 'closeDialog') {
     closeDialog();
   }
 })
 
- // Exit Popup with Escape Key
+ // Exit popup with escape key
  friendsPopup.addEventListener('keydown', event => {
   if (event.key === 'Escape') {
      closeDialog()
   }
 })
 
-// Add New Task Popup When Clicked
+// Add New Friend popup when clicked
  eventHub.addEventListener('addNewFriendBtnClicked', event => {
    openDialog(FriendPop())
 })
 
-// Save Task Button Click - Dispatch
+// When the Save Task button is clicked, dispatch the addNewFriendBtnClicked event
 friendsPopup.addEventListener('click', event => {
   if (event.target.id === 'saveFriendBtn') {
     const customEvent = new CustomEvent('addNewFriendBtnClicked')
+    
     friendsPopup.dispatchEvent(customEvent)
   }
 })
 
-// Save Button -- Save data inputted into API
+// Save Button -- Saves the data the user entered into the form to the API.
+// saveFriend will also change the state of the DOM to reflect most updated friends
 friendsPopup.addEventListener('addNewFriendBtnClicked', event => {
 
     const friendName = document.querySelector("#friendForm__friendName").value

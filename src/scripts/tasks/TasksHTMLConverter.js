@@ -1,6 +1,7 @@
-// Author: Rickie
-// Purpose: Creates an HTML representation of all the tasks and checkboxes
+// Author: Rickie Le
+// Purpose: Creates an HTML representation of a single task, it's checkbox, and delete button
 
+// A function that returns an HTML representation of a single task, its designated checkbox, and its designated delete button.
 export const TasksHTMLConverter = (task) => {
   return `
   <div class="taskList"> 

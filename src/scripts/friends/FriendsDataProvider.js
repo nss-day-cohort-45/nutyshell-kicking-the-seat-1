@@ -1,6 +1,5 @@
-// Author: Rickie and Chris
-/* Purpose: To fetch an array of friend objects from the API, 
-  and stores it into an empty array we can use elsewhere.
+// Author: Rickie Le and Chris Denmark
+/* Purpose: To fetch an array of friend objects from the API, and stores it into an empty array we can use elsewhere.  Updates the DOM when friends are saved and deleted.
 */ 
 
 const eventHub = document.querySelector(".container")
