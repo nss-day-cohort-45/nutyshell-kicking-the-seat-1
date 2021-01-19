@@ -1,6 +1,6 @@
 @import "tasks.css";
 @import "messages.css";
-/* @import "events.css" */
+@import "events.css";
 
 body {
     background-color: #57FF9A;
@@ -26,6 +26,7 @@ header {
     display: flex;
     justify-content: space-around;
     margin: 25px;
+    flex-wrap: wrap;
 }
 
 .login, .register {
@@ -35,7 +36,6 @@ header {
     align-items: stretch;
     width: 200px;
     height: 200px;
-    /* margin-top: 0px; */
 }
 
 
@@ -51,14 +51,19 @@ header {
 }
 
 .tasks, .messages, .articles, .friends, .events {
-    border: gray 2px solid;
     background-color: yellow;
     margin-bottom: 10px;
 }
 
 .tasks_events, .articles_friends {
     display: flex;
-    justify-content: space-between;
     padding: 2px;
+    flex-wrap: wrap;
+    flex-basis: 5000%;
+    justify-content: space-between;
+}
+
+.eventsContainer, .tasksContainer {
+    padding: 5px;
 }
 
