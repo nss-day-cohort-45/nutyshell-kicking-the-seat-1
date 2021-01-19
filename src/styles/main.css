@@ -1,5 +1,8 @@
 @import "tasks.css";
 @import "messages.css";
+@import "friends.css";
+@import "articles.css";
+@import "events.css";
 
 body {
     background-color: #57FF9A;
@@ -51,6 +54,13 @@ header {
 }
 
 .tasks_events, .articles_friends {
+}
+
+.dashboard {
     display: flex;
-    /* justify-content: space-around; */
+}
+
+.nutshellComponent{
+    width: 500px;
+    padding: 20px;
 }

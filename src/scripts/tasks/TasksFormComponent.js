@@ -1,30 +1,18 @@
-// Author: Rickie
+// Author: Rickie Le
 // Purpose: To display the task form popup when the user clicks the add new task button.
 
 
-// ------------------------------------------------------------------------------------------------------------------------------------//
-//                                                            - IMPORT STATEMENTS                                                      //
-// ------------------------------------------------------------------------------------------------------------------------------------//
-
 import { saveTask } from './TasksDataProvider.js'
-
-
-// ------------------------------------------------------------------------------------------------------------------------------------//
-//                                                            - DOM NODE REFERENCES                                                    //
-// ------------------------------------------------------------------------------------------------------------------------------------//
 
 const eventHub = document.querySelector('.container')
 const taskPopup = document.querySelector('.detailDialog')
 
-// ------------------------------------------------------------------------------------------------------------------------------------//
-//                                                            - FUNCTIONS                                                              //
-// ------------------------------------------------------------------------------------------------------------------------------------//
-
+// Function which is called in Nutshell.js. This invokes TaskPop, which is responsible for the Add New Task popup
 export const TasksFormComponent = () => {
   TaskPop()
 }
 
-//  Add New Task Pop Up Container
+//  Add New Task popup Container, TaskCard is interpolated in its own div to display form user needs to fill.
 const TaskPop = () => {
   return `
       <section id="taskForm__details">
@@ -40,7 +28,7 @@ const TaskPop = () => {
     `
   }
 
-// Add New Task Pop Up Details
+// Add New Task popup details/innards - Contains form to input task name and to be completed by date.
   const TaskCard = () => {
     return `
     <fieldset id="taskForm__form">
@@ -53,52 +41,49 @@ const TaskPop = () => {
     `  
   }
 
-// Close Dialog
+// Closes the popup
   const closeDialog = (popup) => {
     taskPopup.innerHTML = popup;
     taskPopup.close()
   }
   
-// Open Dialog
+// Opens the popup
   const openDialog = (popup) => { 
     taskPopup.innerHTML = popup;
     taskPopup.show()
   }
-  
-// ------------------------------------------------------------------------------------------------------------------------------------//
-//                                                            - EVENTS                                                                 //
-// ------------------------------------------------------------------------------------------------------------------------------------//
 
-// Close Popup
 
+// Targets the close/exit button in the popup to close out of the popup
 taskPopup.addEventListener('click', event => {
   if (event.target.id === 'closeDialog') {
     closeDialog();
   }
 })
 
- // Exit Popup with Escape Key
+ // Allows you to use the escape key to exit the popup
  taskPopup.addEventListener('keydown', event => {
   if (event.key === 'Escape') {
      closeDialog()
   }
 })
 
-// Add New Task Popup When Clicked
+// Opens the Add New Task popup when the Add New Task button is clicked
  eventHub.addEventListener('addNewTaskBtnClicked', event => {
    openDialog(TaskPop())
 })
 
-// Save Task Button Click - Dispatch
+// When the Save Task button is clicked, dispatch the saveTaskBtnRecorded event
 taskPopup.addEventListener('click', event => {
   if (event.target.id === 'saveTaskBtn') {
     const customEvent = new CustomEvent('saveTaskBtnRecorded')
-    console.log("Task Added and Recorded")
+
     taskPopup.dispatchEvent(customEvent)
   }
 })
 
-// Save Button -- Save data inputted into API
+// Save Button -- Saves the data the user entered into the form to the API.
+// saveTask will also change the state of the DOM to reflect most updated Tasks
 taskPopup.addEventListener('saveTaskBtnRecorded', event => {
     const taskName = document.querySelector("#taskForm__taskName").value
     const taskDate = document.querySelector("#taskForm__taskDate").value

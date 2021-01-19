@@ -9,6 +9,9 @@ import { TaskList } from './tasks/TasksList.js'
 import { TasksFormComponent } from './tasks/TasksFormComponent.js'
 import { messageFormComponent } from "./messages/MessagesFormComponent.js"
 import { messageListComponent } from "./messages/MessagesList.js"
+import { FriendList } from './friends/FriendsList.js'
+import { FriendsFormComponent } from './friends/FriendsFormComponent.js'
+
 
 export const Nutshell = () => {
     // Render all your UI components here
@@ -20,6 +23,8 @@ export const Nutshell = () => {
     TasksFormComponent()
     messageFormComponent()
     messageListComponent()
+    FriendList()
+    FriendsFormComponent()
 }
 
 const eventHub = document.querySelector(".container")

@@ -1,0 +1,13 @@
+.article__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.article_Details {
+  display: flex;
+  flex-direction: column;
+}
+
+.addNewArticle {
+  float: right;
+}

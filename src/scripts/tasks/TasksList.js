@@ -1,5 +1,5 @@
-// Author: Rickie
-/* Purpose: To render a list of Daily Task HTML elements
+// Author: Rickie Le
+/* Purpose: To render a list of Tasks HTML elements
 */
 
 import { getTasks, useTasks, deleteTask } from './TasksDataProvider.js'
@@ -10,10 +10,7 @@ const contentTarget = document.querySelector(".tasks")
 
 let allTasks = []
 
-eventHub.addEventListener("taskStateChanged", () => {
-  TaskList()
-})
-
+// Grabs the tasks, and the render function is invoked to display Daily Tasks container
 export const TaskList = () => {
   getTasks()
     .then(() => {
@@ -22,9 +19,10 @@ export const TaskList = () => {
     })
 }
 
+// To render the Daily Tasks container, and a list of the user's tasks with TasksHTMLConverter
 const render = () => {
   contentTarget.innerHTML = `
-      <section class="tasksContainer">
+      <section class="tasksContainer nutshellComponent">
         <h2>Daily Tasks</h2>
         <div class="dailyTasks">
           ${
@@ -33,19 +31,18 @@ const render = () => {
                 return TasksHTMLConverter(task)
               }).join("")
           }
-        </div>
+        </div> 
+        <button id="addNewTaskBtn" class="addNewTaskBtn">Add New Task</button>
       </section>
-
-   <button id="addNewTaskBtn">Add New Task</button>
     `
 }
 
-// ------------------------------------------------------------------------------------------------------------------------------------//
-//                                                            - EVENTS                                                                 //
-// ------------------------------------------------------------------------------------------------------------------------------------//
+// Changes the current state of tasks to the most updated version - Invokes TaskList
+eventHub.addEventListener("taskStateChanged", () => {
+  TaskList()
+})
 
-
-// Add New Task Button Click - Dispatch
+// Add New Task Button - Dispatch
 eventHub.addEventListener('click', event => {
   if (event.target.id.startsWith('addNewTaskBtn')) {
     const customEvent = new CustomEvent('addNewTaskBtnClicked')
@@ -53,15 +50,21 @@ eventHub.addEventListener('click', event => {
   }
 })
 
-// Delete Task
+
+// Delete Task with Delete Task Button
 eventHub.addEventListener("click", clickEvent => {
   if (clickEvent.target.id.startsWith("deleteTaskBtn--")) {
       const [prefix, taskId] = clickEvent.target.id.split("--")
-      /*
-          Invoke the function that performs the delete operation.
-          Once the operation is complete you should THEN invoke
-          useNotes() and render the note list again.
-      */
+     
+     deleteTask(taskId)
+  }
+})
+
+// Delete Task with Ticked Checkbox 
+eventHub.addEventListener("click", clickEvent => {
+  if (clickEvent.target.id.startsWith("checkbox--")) {
+      const [prefix, taskId] = clickEvent.target.id.split("--")
+     
      deleteTask(taskId)
   }
 })

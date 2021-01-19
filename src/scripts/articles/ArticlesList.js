@@ -4,7 +4,7 @@
 import { getArticles, useArticles, deleteArticle } from "./ArticlesDataProvider.js"
 import { ArticleHTMLConverter } from "./ArticlesHTMLConverter.js"
 
-const contentTarget = document.querySelector(".articleList")
+const articleTarget = document.querySelector(".articles")
 const eventHub = document.querySelector(".container")
 
 eventHub.addEventListener("articleStateChanged", () => {
@@ -20,12 +20,29 @@ eventHub.addEventListener("click", clickEvent => {
   }
 })
 
+eventHub.addEventListener('click', event => {
+  if (event.target.id.startsWith('addNewArticle')) {
+    const customEvent = new CustomEvent('addNewArticleBtnClicked')
+    eventHub.dispatchEvent(customEvent)
+  }
+})
+
 const render = (articlesArray) => {
   const allArticlesConvertedToStrings = articlesArray.map((articles) => {
     return ArticleHTMLConverter(articles)
   }).join("")
-  contentTarget.innerHTML = allArticlesConvertedToStrings
+
+  articleTarget.innerHTML = `
+      <section class= "nutshellComponent">
+        <h2>News Articles</h2>
+        ${allArticlesConvertedToStrings}
+          <div>
+          <button id="addNewArticle" class="addNewArticle">Add New Article</button>
+          </div>
+      </section> 
+  `
 }
+
 
 export const articleList = () => {
   getArticles()
