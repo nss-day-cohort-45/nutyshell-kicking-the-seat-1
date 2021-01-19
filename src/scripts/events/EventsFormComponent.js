@@ -16,7 +16,7 @@ export const EventsFormComponent = () => {
 const EventPopup = () => {
     return `
         <section id="eventForm__details">
-        <button id="closeDialog" class="closeDialog">close</button
+        <button id="closeDialog" class="closeDialog">X</button
           <div class="addEventBox">
             <h1>Add Event</h1>
             <div class="eventForm__list">
